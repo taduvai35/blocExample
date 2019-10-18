@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
           title: Text("Employee App"),
         ),
         body: Container(
-          child: StreamBuilder<List<Employee>>(
+          child: StreamBuilder(
               stream: _employeeBloc.employeeListStream,
               builder: (BuildContext context,
                   AsyncSnapshot<List<Employee>> snapshot) {
@@ -56,7 +56,27 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ],
                               ),
-                            )
+                            ),
+                            Container(
+                              child: IconButton(
+                                icon: Icon(Icons.thumb_up),
+                                color: Colors.green,
+                                onPressed: () {
+                                  _employeeBloc.employeeSalaryIncrement
+                                      .add(snapshot.data[index]);
+                                },
+                              ),
+                            ),
+                            Container(
+                              child: IconButton(
+                                icon: Icon(Icons.thumb_down),
+                                color: Colors.red,
+                                onPressed: () {
+                                  _employeeBloc.employeeSalaryDecrement
+                                      .add(snapshot.data[index]);
+                                },
+                              ),
+                            ),
                           ],
                         ),
                       );

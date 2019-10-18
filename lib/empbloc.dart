@@ -26,9 +26,9 @@ class EmployeeBloc {
 
   final _employeeListStreamController = StreamController<List<Employee>>();
 
-  final _employeeSalaryIncrementStreamController = StreamController();
+  final _employeeSalaryIncrementStreamController = StreamController<Employee>();
 
-  final _employeeSalaryDecrementStreamController = StreamController();
+  final _employeeSalaryDecrementStreamController = StreamController<Employee>();
 
 // getters
 
